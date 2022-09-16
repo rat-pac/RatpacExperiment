@@ -2,6 +2,6 @@ bin/*
 *.root
 *.log
 *.o
-watchman.sh
+slartibartfast.sh
 install/*
 build/*

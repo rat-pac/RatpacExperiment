@@ -1,6 +1,6 @@
 add_library( slartibartfastobj OBJECT
   # Append each .cc file
-  slartibartfast.cc
+  Slartibartfast.cc
 )
 
 target_include_directories( slartibartfastobj PUBLIC

@@ -15,4 +15,6 @@ then
   find . -type f -not -path "./.git/*" -exec sed -i "s/${mixed}/${mixedstring}/g" {} \;
   mv config/${lower}.sh.in config/${basestring}.sh.in
   mv src/${lower}.cpp src/${basestring}.cpp
+  mv src/${mixed}.cc src/${mixedstring}.cc
+  mv src/include/${mixed}.hh src/include/${mixedstring}.hh
 fi

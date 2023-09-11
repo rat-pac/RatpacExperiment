@@ -1,5 +1,6 @@
 add_library( slartibartfastobj OBJECT
   # Append each .cc file
+  slartibartfast.cc
 )
 
 target_include_directories( slartibartfastobj PUBLIC
@@ -12,4 +13,15 @@ add_executable(slartibartfast slartibartfast.cpp)
 target_link_libraries(slartibartfast PUBLIC 
   slartibartfastobj ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} ${Ratpac_LIBRARIES})
 
-install(TARGETS slartibartfast RUNTIME DESTINATION bin)
+set_target_properties(slartibartfastobj slartibartfast
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${SLARTIBARTFAST_LIBRARY_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${SLARTIBARTFAST_LIBRARY_DIR})
+
+install(TARGETS slartibartfastobj slartibartfast
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin)
+
+install(DIRECTORY ${SLARTIBARTFAST_INCLUDE_DIR}
+    DESTINATION ${CMAKE_INSTALL_PREFIX})

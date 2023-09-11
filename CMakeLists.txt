@@ -63,12 +63,16 @@ include(${ROOT_USE_FILE})
 
 find_package(Geant4 REQUIRED COMPONENTS qt)
 include(${Geant4_USE_FILE})
+include_directories(${Geant4_INCLUDE_DIRS})
 
 find_package(Threads REQUIRED)
 find_package(Ratpac REQUIRED)
 
 ###########################################################
 # Configure header with our version information
+configure_file(${CMAKE_SOURCE_DIR}/config/Config.hh.in
+    ${CMAKE_SOURCE_DIR}/src/include/Config.hh
+    @ONLY NEWLINE_STYLE UNIX)
 
 # Configure local scripts
 set(SLARTIBARTFASTROOT ${CMAKE_INSTALL_PREFIX})
